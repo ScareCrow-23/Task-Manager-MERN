@@ -9,3 +9,6 @@ First Commit (22-07-2024) -
         - Recharts
         -Sonner
     After This I created a Folder Structure with the pages I will be using in this project.
+
+Second Commit (22-07-2024) -
+    After Setting up the basics require for the app, I started making my first page. I added private and public routes in the app page, then started working on login page. The page consists of two containers, One with app name and motto and the other with a login form asking for email and password. I will be changing the name and motto when something creative comes to my mind but for now let it be what it is. I also created 2 components, a textbox component and a button component, both of these components will come in handy later in the project. 
