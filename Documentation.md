@@ -8,3 +8,6 @@ After Setting up the basics require for the app, I started making my first page.
 
 Third Commit (23-07-2024) -
 I created some important components which can be used throught the application. First is a Sidebar component which has all the controlls a user and a admin has access to. Second is a Navbar component which has all the navigation buttons, I also made them responsive to work smothly on the mobile device as well on the desktop. Apart form these I also setup redux toolkit and its slices.
+
+Fourth Commit - (23-07-2024) -
+Completed dashoboard page, added charts and users table to it. Also created 2 new components, Chart.jsx and UserInfo.jsx. Currently I am using static data and not fetching nay data from the server. But with just front end I can't get into the dashboard page because of the condition I put on login page. So the fully tested dashboard page will be available once I have set up the backend. I guess data.js file in utils folder is a temporary file and will be removed once the backend will be available.
