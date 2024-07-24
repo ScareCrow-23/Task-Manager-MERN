@@ -14,3 +14,6 @@ Completed dashoboard page, added charts and users table to it. Also created 2 ne
 
 Fifth commit - (24-07-2024) -
 Completed Tasks, Trash and Users page. I created a lot of different components and reused them in all these pages. Just a few more fixes and edits on the front end then we can start working on the backend. If everything goes well front end will be completed by tomorrow.
+
+Sixth commit - (24-07-2024) -
+Front end has been completed with some bugs or set backs cause I don't have a working backend. I will start working on the backend soon, so I can address this issues and find a solution for them. 
