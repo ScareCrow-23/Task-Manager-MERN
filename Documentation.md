@@ -17,3 +17,6 @@ Completed Tasks, Trash and Users page. I created a lot of different components a
 
 Sixth commit - (24-07-2024) -
 Front end has been completed with some bugs or set backs cause I don't have a working backend. I will start working on the backend soon, so I can address this issues and find a solution for them. 
+
+Seventh Commit - (28-07-2024) -
+Backend has been implemented and working. So, if we think about it major part of this project is done and we just have to integrate the backend and the front end.
