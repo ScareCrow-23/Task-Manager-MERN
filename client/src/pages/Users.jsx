@@ -7,6 +7,12 @@ import { getInitials } from "../utils";
 import clsx from "clsx";
 import ConfirmatioDialog, { UserAction } from "../components/Dialogs";
 import AddUser from "../components/AddUser";
+import {
+  useDeleteUserMutation,
+  useGetTeamListQuery,
+  useUserActionMutation,
+} from "../redux/slices/api/userApiSlice";
+import { toast } from "sonner";
 
 const Users = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -14,8 +20,43 @@ const Users = () => {
   const [openAction, setOpenAction] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  const userActionHandler = () => {};
-  const deleteHandler = () => {};
+  const { data, isLoading } = useGetTeamListQuery();
+  const [deleteUser] = useDeleteUserMutation();
+  const [userAction] = useUserActionMutation();
+
+  const userActionHandler = async () => {
+    try {
+      const result = await userAction({
+        isActive: !selected?.isActive,
+        id: selected?._id,
+      });
+      // TODO- Error: refetch() is not defined
+      // refetch();
+      toast.success(result.data.message);
+      setSelected(null);
+      setTimeout(() => {
+        setOpenAction(false);
+      }, 500);
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.data?.message || error.error);
+    }
+  };
+  const deleteHandler = async () => {
+    try {
+      const result = await deleteUser(selected);
+      // TODO- Error: refetch() is not defined
+      // refetch();
+      toast.success("Deleted successfully");
+      setSelected(null);
+      setTimeout(() => {
+        setOpenDialog(false);
+      }, 500);
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.data?.message || error.error);
+    }
+  };
 
   const deleteClick = (id) => {
     setSelected(id);
@@ -26,7 +67,10 @@ const Users = () => {
     setSelected(el);
     setOpen(true);
   };
-
+  const userStatusClick = (el) => {
+    setSelected(el);
+    setOpenAction(true);
+  };
   const TableHeader = () => (
     <thead className="border-b border-gray-300">
       <tr className="text-black text-left">
@@ -58,7 +102,7 @@ const Users = () => {
 
       <td>
         <button
-          // onClick={() => userStatusClick(user)}
+          onClick={() => userStatusClick(user)}
           className={clsx(
             "w-fit px-4 py-1 rounded-full",
             user?.isActive ? "bg-blue-200" : "bg-yellow-100"
@@ -104,7 +148,7 @@ const Users = () => {
             <table className="w-full mb-5">
               <TableHeader />
               <tbody>
-                {summary.users?.map((user, index) => (
+                {data?.map((user, index) => (
                   <TableRow key={index} user={user} />
                 ))}
               </tbody>
