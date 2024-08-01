@@ -20,3 +20,6 @@ Front end has been completed with some bugs or set backs cause I don't have a wo
 
 Seventh Commit - (28-07-2024) -
 Backend has been implemented and working. So, if we think about it major part of this project is done and we just have to integrate the backend and the front end.
+
+Eight Commit - (02-08-2024) - 
+I completed this project on the last commit, but for some reason I didn't write the documentation for it. The last step was to intergate backend with front end. First I set up the redux toolkit and created a few slices, apiSlice.js, authSlice.js, authApiSlice.js, taskApiSlice.js, userApiSlice.js. To handle the routing and use it on the front end to show respective information. The last changes to me made were just some naming changes in afew places.
